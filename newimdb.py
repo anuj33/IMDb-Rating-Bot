@@ -8,16 +8,17 @@ s="+".join(title.split())
 
 f_url = 'http://www.imdb.com/find?q='
 url=f_url+s+'&s=all'
+try:
+	var = requests.get(url)
+	soup = BeautifulSoup(var.content)
 
-var = requests.get(url)
+	x = soup.find("td", {"class": "result_text"})
+	m = x.find("a")['href']
 
-
-soup = BeautifulSoup(var.content)
-
-x = soup.find("td", {"class": "result_text"})
-m = x.find("a")['href']
-
-
+except Exception:
+	print "Check Your Movie Name"
+	exit()
+	
 new_url = 'http://www.imdb.com' + m 
 
 content = requests.get(new_url)
@@ -52,9 +53,3 @@ for tag in soup.find_all("span", {"itemprop":"actors"}):
 
 
 print "--------------------------------------------------------------------"
-
-	# if tag.find("span")['itemprop'] == 'creator':
-	# 	print tag.text,
-
-	# if tag.find("span")['itemprop'] == 'actors':
-	# 	print tag.text 
