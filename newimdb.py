@@ -25,23 +25,36 @@ soup = BeautifulSoup(content.content)
 
 
 x = soup.find("div", {"class": "title_wrapper"})
-
+print "-------------------------------------------------------------------"
 c = x.findChildren()[0]
 print "Movie Name: %s" % c.text
 
 c = soup.find("div", {"class":"ratingValue"})
 print "IMDb: %s" % c.text 
 
-c = soup.find_all("div", {"class":"credit_summary_item"})
 
 
+print "--------------------------------------------------------------------"
+print "Director: "
+for tag in soup.find_all("span", {"itemprop":"director"}):
+	print "%s" % tag.text
 
-for tag in c:
-	if tag.find("span")['itemprop'] == 'director':
-		print tag.text,
+print "--------------------------------------------------------------------"
+print "Writers: "
+for tag in soup.find_all("span", {"itemprop":"creator"}):
+	print "%s" % tag.text
 
-	if tag.find("span")['itemprop'] == 'creator':
-		print tag.text,
 
-	if tag.find("span")['itemprop'] == 'actors':
-		print tag.text 
+print "--------------------------------------------------------------------"
+print "Director: "
+for tag in soup.find_all("span", {"itemprop":"actors"}):
+	print "%s" % tag.text
+
+
+print "--------------------------------------------------------------------"
+
+	# if tag.find("span")['itemprop'] == 'creator':
+	# 	print tag.text,
+
+	# if tag.find("span")['itemprop'] == 'actors':
+	# 	print tag.text 
