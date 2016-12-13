@@ -5,4 +5,4 @@ Its features are:
 	2. It just finds out the url and extracts the information.
 	3. Gives you rating, director, writers, and actors' name too.
 
-!(Example)[https://github.com/yaki29/IMDb-Rating-Bot/blob/master/example.png]
+![Example](https://github.com/yaki29/IMDb-Rating-Bot/blob/master/example.png)
