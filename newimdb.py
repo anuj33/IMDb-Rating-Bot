@@ -47,7 +47,7 @@ for tag in soup.find_all("span", {"itemprop":"creator"}):
 
 
 print "--------------------------------------------------------------------"
-print "Director: "
+print "Actors: "
 for tag in soup.find_all("span", {"itemprop":"actors"}):
 	print "%s" % tag.text
 
